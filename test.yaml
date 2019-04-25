@@ -1,0 +1,20 @@
+schemaVersion: "2.0.0"
+
+commandTests:
+  - name: "Whoami"
+    command: "whoami"
+    expectedOutput: ["evo"]
+  - name: "which evolution"
+    command: "which"
+    args: ["evolution"]
+    expectedOutput: ['/usr/bin/evolution']
+  - name: "evolution version"
+    command: "thunderbird"
+    args: ["--version"]
+    expectedOutput: ["blah"]
+metadataTest:
+  cmd: ["--help"]
+  entrypoint: ["evolution"]
+  exposedPorts: []
+  volumes: ["/home/evo/.evolution", "/home/evo/Downloads"]
+  workdir: /home/evo
